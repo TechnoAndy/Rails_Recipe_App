@@ -201,26 +201,11 @@ I would like to thank Microverse for providing me with the reading material that
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-
-- **Can I reuse this projects' code?**
-
-  - Yes, it is okay.
-
-- **Can I contribute to this repository?**
-
-  - Yes. Just contact me at `atdiegaardt@gmail.com` and I will gladly add you as a contributor to the repository.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT]([./LICENSE](https://github.com/TechnoAndy/Rails_recipe_app/blob/develop/LICENSE)) licensed.
+This project is [MIT]([./LICENSE](https://github.com/TechnoAndy/readme-template/blob/master/README.md))) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
