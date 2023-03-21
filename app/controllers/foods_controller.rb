@@ -14,9 +14,6 @@ class FoodsController < ApplicationController
     @food = Food.new
   end
 
-  # GET /foods/1/edit
-  def edit; end
-
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)

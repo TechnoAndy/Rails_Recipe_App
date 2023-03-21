@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :users
   resources :foods 
   resources :recipes
-  resources :inventories
+  resources :inventories do 
+  resources :inventory_foods
+  end
 
   get '/public_recipes', to: 'recipes#public_recipes'
 
