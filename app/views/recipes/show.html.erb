@@ -2,6 +2,28 @@
 
 <%= render @recipe %>
 
+<%= button_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), method: :get %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+      </tr>
+  </thead>
+
+  <tbody>
+    <% @recipe.recipe_foods.each do |recipe_food| %>
+      <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %></td>
+      </tr>
+    <%end %>
+  </tbody>
+</table>
+
 <div>
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
   <%= link_to "Back to recipes", recipes_path %>
