@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  # load_and_authorize_resource
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
@@ -53,6 +54,18 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def public_recipes
+    @recipes = Recipe.where(public: true).order(created_at: :desc)
+  end
+
+  def general_shopping_list
+    @food_ids = current_user.foods
+      .joins(:recipe_foods)
+      .distinct
+      .pluck(:id)
+    @foods = current_user.foods.where.not(id: @food_ids)
   end
 
   private

@@ -4,9 +4,19 @@
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
+    <p>
+      <strong>Name:</strong>
+      <%= recipe.name %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= recipe.description %>
+    </p>
+    
     <p>
       <%= link_to "Show this recipe", recipe %>
+      <%= button_to "Destroy this recipe", recipe, method: :delete %>
     </p>
   <% end %>
 </div>
