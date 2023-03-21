@@ -2,6 +2,7 @@
 
 <%= render @recipe %>
 
+<%= button_to "Generate shopping list", new_recipe_recipe_food_path(@recipe.id), method: :get %>
 <%= button_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), method: :get %>
 
 <table>
@@ -18,7 +19,14 @@
     <% @recipe.recipe_foods.each do |recipe_food| %>
       <tr>
         <td><%= recipe_food.food.name %></td>
-        <td><%= recipe_food.quantity %></td>
+        <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+        <td>$<%= recipe_food.quantity * recipe_food.food.price%></td>
+        <td>
+        <div>
+          <%= button_to "Modify", edit_recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :get%>
+          <%= button_to "Remove", recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :delete%>
+          <div>
+        </td>
       </tr>
     <%end %>
   </tbody>

@@ -19,7 +19,11 @@ class RecipeFoodsController < ApplicationController
   end
 
   # GET /recipe_foods/1/edit
-  def edit; end
+  def edit
+    @foods = Food.all
+    @recipe_id = params[:recipe_id]
+    @recipe = Recipe.find(params[:recipe_id])
+  end
 
   # POST /recipe_foods or /recipe_foods.json
   def create
@@ -42,9 +46,14 @@ class RecipeFoodsController < ApplicationController
 
   # PATCH/PUT /recipe_foods/1 or /recipe_foods/1.json
   def update
+    @recipe_food = RecipeFood.find(params[:id])
+    @foods = Food.all
+    @recipe_id = params[:recipe_id]
+    @recipe = Recipe.find(@recipe_id)
+
     respond_to do |format|
       if @recipe_food.update(recipe_food_params)
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully updated.' }
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe food was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe_food }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +67,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipe_foods_url, notice: 'Recipe food was successfully destroyed.' }
+      format.html { redirect_to recipe_url, notice: 'Recipe food was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
