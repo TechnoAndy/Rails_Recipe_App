@@ -7,7 +7,25 @@
     
     <%= link_to "New food", new_inventory_inventory_food_path(@inventory.id) %>
 
+   <table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Actions</th>
+      </tr>
+  </thead>
 
+  <tbody>
+    <% @inventory.inventory_foods.each do |inventory_food| %>
+      <tr>
+        <td><%= inventory_food.food.name %></td>
+        <td><%= inventory_food.quantity %></td>
+        <td><%= button_to "Remove", inventory_inventory_food_path(inventory_food.inventory.id, inventory_food.id), method: :delete %></td>
+      </tr>
+    <%end %>
+  </tbody>
+</table>
 
   
  </section>

@@ -23,7 +23,7 @@ class InventoryFoodsController < ApplicationController
     respond_to do |format|
       if @inventory_food.save
         format.html do
-          redirect_to inventories_path(@inventory), notice: 'Inventory food was successfully created.'
+          redirect_to inventory_path(@inventory.id), notice: 'Inventory food was successfully created.'
         end
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,10 +34,10 @@ class InventoryFoodsController < ApplicationController
 
   # DELETE /inventory_foods/1 or /inventory_foods/1.json
   def destroy
+    @inventory = Inventory.find(params[:inventory_id])
     @inventory_food.destroy
-
     respond_to do |format|
-      format.html { redirect_to inventory_foods_url, notice: 'Inventory food was successfully destroyed.' }
+      format.html { redirect_to inventory_path(@inventory), notice: 'Inventory food was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
