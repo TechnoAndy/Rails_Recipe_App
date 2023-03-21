@@ -8,7 +8,7 @@ class InventoriesController < ApplicationController
 
   # GET /inventories/1 or /inventories/1.json
   def show
-  @inventor = Inventory.find(params[:id])
+    @inventory = Inventory.find(params[:id])
   end
 
   # GET /inventories/new

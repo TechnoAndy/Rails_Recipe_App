@@ -3,9 +3,11 @@
 
  <section>
   
-    <h1> Inventory <%= @inventor.id %> </h1>
+    <h1> Inventory <%= @inventory.id %> </h1>
     
-    <%= link_to "New food", new_inventory_inventory_food_path(@inventor) %>
+    <%= link_to "New food", new_inventory_inventory_food_path(@inventory.id) %>
+
+
 
   
  </section>
