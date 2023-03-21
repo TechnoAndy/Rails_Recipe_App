@@ -67,7 +67,7 @@ class RecipesController < ApplicationController
       .pluck(:id)
     @foods = current_user.foods.where.not(id: @food_ids)
   end
-  
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
