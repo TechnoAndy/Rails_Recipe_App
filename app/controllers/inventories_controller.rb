@@ -7,39 +7,24 @@ class InventoriesController < ApplicationController
   end
 
   # GET /inventories/1 or /inventories/1.json
-  def show; end
+  def show
+    @inventory = Inventory.find(params[:id])
+  end
 
   # GET /inventories/new
   def new
     @inventory = Inventory.new
   end
 
-  # GET /inventories/1/edit
-  def edit; end
-
   # POST /inventories or /inventories.json
   def create
     @inventory = current_user.inventories.build(inventory_params)
-
     respond_to do |format|
       if @inventory.save
-        format.html { redirect_to inventory_url(@inventory), notice: 'Inventory was successfully created.' }
+        format.html { redirect_to inventories_url, notice: 'Inventory was successfully created.' }
         format.json { render :show, status: :created, location: @inventory }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @inventory.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /inventories/1 or /inventories/1.json
-  def update
-    respond_to do |format|
-      if @inventory.update(inventory_params)
-        format.html { redirect_to inventory_url(@inventory), notice: 'Inventory was successfully updated.' }
-        format.json { render :show, status: :ok, location: @inventory }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @inventory.errors, status: :unprocessable_entity }
       end
     end

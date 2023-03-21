@@ -2,13 +2,18 @@
 
 <h1>Inventories</h1>
 
-<div id="inventories">
-  <% @inventories.each do |inventory| %>
-    <%= render inventory %>
+<ul id="inventories">
+  <% @inventories.each_with_index do |inventory, index| %>
+     <li id="<%= dom_id inventory %>">
+     <div>
+    <p>inventory <%= index + 1 %></p>
+    <p><%= button_to "Remove", inventory, method: :delete %></p>
+    </div>
     <p>
-      <%= link_to "Show this inventory", inventory %>
-    </p>
+    <%= link_to inventory.name, inventory_url(inventory) %>
+     </p>
+     </li>
   <% end %>
-</div>
+</ul>
 
 <%= link_to "New inventory", new_inventory_path %>
