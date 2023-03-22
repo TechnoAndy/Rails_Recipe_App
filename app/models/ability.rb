@@ -38,6 +38,6 @@ class Ability
 
     # return unless user.admin?  additional permissions for administrators
 
-     # finally we give all remaining permissions only to the admins
+    # finally we give all remaining permissions only to the admins
   end
 end
