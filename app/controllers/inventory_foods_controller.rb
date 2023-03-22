@@ -6,9 +6,6 @@ class InventoryFoodsController < ApplicationController
     @inventory_foods = InventoryFood.all
   end
 
-  # GET /inventory_foods/1 or /inventory_foods/1.json
-  def show; end
-
   # GET /inventory_foods/new
   def new
     @foods = Food.all
