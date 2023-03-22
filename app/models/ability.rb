@@ -36,7 +36,7 @@ class Ability
     can :manage, Recipe, user: user # if the user is logged in can manage it's own posts
     can :manage, Inventory, user: user # if the user is logged in can manage it's own comments
 
-     return unless user.admin?  additional permissions for administrators
+    return unless user.admin? # additional permissions for administrators
 
     can :manage, :all # finally we give all remaining permissions only to the admins
   end
