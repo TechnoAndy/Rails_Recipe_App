@@ -1,12 +1,6 @@
 <div id="<%= dom_id recipe %>">
   <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
+    Recipe <%= recipe.id %> : <strong><%= recipe.name %></strong>
   </p>
 
   <p>
@@ -17,6 +11,11 @@
   <p>
     <strong>Cooking time:</strong>
     <%= recipe.cooking_time %>
+  </p>
+
+  <p>
+    <strong>Steps go here:</strong>
+    <%= recipe.description %>
   </p>
 
   <p>
