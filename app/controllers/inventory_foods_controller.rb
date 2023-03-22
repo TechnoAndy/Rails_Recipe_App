@@ -26,8 +26,7 @@ class InventoryFoodsController < ApplicationController
           redirect_to inventory_path(@inventory.id), notice: 'Inventory food was successfully created.'
         end
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @inventory_food.errors, status: :unprocessable_entity }
+        redirect_to new_inventory_inventory_food_path(@inventory.id), notice: 'Inventory food not created.'
       end
     end
   end

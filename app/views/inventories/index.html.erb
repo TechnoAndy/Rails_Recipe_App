@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
-
 <h1>Inventories</h1>
 
 <ul id="inventories">
   <% @inventories.each_with_index do |inventory, index| %>
+  <% if can? :manage, inventory %>
      <li id="<%= dom_id inventory %>">
      <div>
     <p>inventory <%= index + 1 %></p>
@@ -13,6 +13,7 @@
     <%= link_to inventory.name, inventory_url(inventory) %>
      </p>
      </li>
+     <% end %>
   <% end %>
 </ul>
 

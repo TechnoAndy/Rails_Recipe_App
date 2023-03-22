@@ -2,11 +2,11 @@
 
 
  <section>
-  
+  <% if can? :manage, @inventory %>
     <h1> Inventory <%= @inventory.id %> </h1>
     
     <%= link_to "New food", new_inventory_inventory_food_path(@inventory.id) %>
-
+     <% end %>
    <table>
   <thead>
     <tr>
@@ -22,6 +22,7 @@
         <td><%= inventory_food.food.name %></td>
         <td><%= inventory_food.quantity %></td>
         <td><%= button_to "Remove", inventory_inventory_food_path(inventory_food.inventory.id, inventory_food.id), method: :delete %></td>
+      
       </tr>
     <%end %>
   </tbody>
