@@ -4,20 +4,18 @@
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
-    <p>
-      <strong>Name:</strong>
-      <%= recipe.name %>
-    </p>
+    <% if (current_user.id == recipe.user_id) || (current_user.admin?) %> 
+      <div>
+        <p><strong><%= recipe.name %></strong></p>
 
-    <p>
-      <strong>Description:</strong>
-      <%= recipe.description %>
-    </p>
-    
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-      <%= button_to "Destroy this recipe", recipe, method: :delete %>
-    </p>
+        <p><%= recipe.description %></p>
+        
+        <p>
+          <%= link_to "Show this recipe", recipe %>
+          <%= button_to "Destroy this recipe", recipe, method: :delete %>
+        </p>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

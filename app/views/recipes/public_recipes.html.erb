@@ -4,7 +4,7 @@
   <div>
     <% @recipes.each do |recipe| %>
     <div>
-      <p><strong>Name: </strong><%= recipe.name %></p>
+      <p><%= link_to "#{recipe.name}", recipe_path(recipe.id) %> </p>
       <p><strong>By: </strong><%= User.find(recipe.user_id).name %></p>
       <p><span> Total food items: </span><%= recipe.total_food_items %></p>
       <p><span> Total price: $</span><%= recipe.total_price %></p>

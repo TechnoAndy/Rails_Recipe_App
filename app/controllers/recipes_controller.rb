@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  # load_and_authorize_resource
+  load_and_authorize_resource
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
@@ -48,11 +48,16 @@ class RecipesController < ApplicationController
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
-    @recipe.destroy
+    @recipe.recipe_foods.destroy_all
 
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
+      if @recipe.destroy
+        format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+        format.json { head :no_content }
+      else
+        format.html { render :delete, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
   end
 
