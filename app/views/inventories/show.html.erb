@@ -1,15 +1,15 @@
-<p style="color: green"><%= notice %></p>
 
-
- <section>
+ <section class="inventory-container">
   <% if can? :manage, @inventory %>
-    <h1> Inventory <%= @inventory.id %> </h1>
-    
-    <%= link_to "New food", new_inventory_inventory_food_path(@inventory.id) %>
+    <h1 class="inventory-title"> Inventory <%= @inventory.id %> </h1>
+    <div class="add-new-food">
+    <%= link_to "Add food", new_inventory_inventory_food_path(@inventory.id), class: 'add-inventory' %>
      <% end %>
-   <table>
+     </div>
+     <hr style="width:500px;">
+   <table class="inventory-food-tale">
   <thead>
-    <tr>
+    <tr class="head-table">
       <th>Food</th>
       <th>Quantity</th>
       <th>Actions</th>
@@ -17,8 +17,8 @@
   </thead>
 
   <tbody>
-    <% @inventory.inventory_foods.each do |inventory_food| %>
-      <tr>
+    <% @inventory_foods.each do |inventory_food| %>
+      <tr class="inventory-tr">
         <td><%= inventory_food.food.name %></td>
         <td><%= inventory_food.quantity %></td>
         <td><%= button_to "Remove", inventory_inventory_food_path(inventory_food.inventory.id, inventory_food.id), method: :delete %></td>
@@ -28,11 +28,7 @@
   </tbody>
 </table>
 
-  
- </section>
-
-<div>|
-  <%= link_to "Back to inventories", inventories_path %>
-
- 
+  <div>
+  <%= link_to "Back to inventories", inventories_path, class: 'add-inventory' %>
 </div>
+ </section>

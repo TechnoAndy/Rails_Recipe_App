@@ -1,4 +1,5 @@
-<%= form_with(url: inventory_inventory_foods_path, scope: :inventory_food) do |form| %>
+
+<%= form_with(url: inventory_inventory_foods_path, scope: :inventory_food, html: {class: "inventory-form"}) do |form| %>
   <% if @inventory_foods.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@inventory_foods.errors.count, "error") %> prohibited this inventory_food from being saved:</h2>
@@ -13,15 +14,15 @@
   
    <div>
     <%= form.label :food_id, style: "display: block" %>
-    <%= form.select :food_id, @foods.map { |food| [food.name, food.id] } %>
+    <%= form.select :food_id, @foods.map { |food| [food.name, food.id] }, class: 'name-field' %>
   </div>
 <%= form.hidden_field :inventory_id, value: @inventory_id %>
   <div>
     <%= form.label :quantity, style: "display: block" %>
-    <%= form.text_field :quantity %>
+    <%= form.text_field :quantity, class: 'name-field' %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Add food", class: 'add-inventory' %>
   </div>
 <% end %>
