@@ -1,8 +1,19 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "modal.js" %>
+<% end %>
+
 <p style="color: green"><%= notice %></p>
 
 <%= render @recipe %>
 
-<%= button_to "Generate shopping list", new_recipe_recipe_food_path(@recipe.id), method: :get %>
+<button type="button"
+  id="btn-choose-inventory"
+  onclick="showModal()"
+  data-toggle="modal"
+  data-target="#modalChooseInventory">
+    Generate shopping list
+</button>
+
 <% if can? :manage, @recipe %>
   <%= button_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), method: :get %>
 <%end%>
@@ -39,4 +50,22 @@
 <div>
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
   <%= link_to "Back to recipes", recipes_path %>
+</div>
+
+<div class="modal hide" id="modalChooseInventory">
+  <h5 id="modalChooseInventoryLabel">Generating Shopping List</h5>
+
+  <div class="modal-body">
+    <h6>Choose an inventory to use</h6>
+    <%= form_with url: shopping_lists_path, method: :get do |form| %>
+      <%- @inventories = Inventory.where(user_id: current_user.id) %>
+      <%= form.select :inventory_id, @inventories.map { |i| [i.name, i.id] } %>
+
+      <%= form.number_field :recipe_id, value: @recipe.id, hidden: true %>
+
+      <div class="modal-footer">
+        <%= form.submit "Generate", data: { turbo: false } %>
+      </div>
+    <% end %>
+  </div>
 </div>

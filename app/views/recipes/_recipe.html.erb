@@ -18,9 +18,30 @@
     <%= recipe.description %>
   </p>
 
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
+  <p>          
+    <% if recipe.public %>
+      <p>Public</p>
+    <% else %>
+      <p>Private</p>
+    <% end %>
   </p>
 
+  <p>
+    <% if current_user.id === recipe.user_id %>
+      <%disabled = false%>
+    <%else%>
+      <%disabled = true%>
+    <%end%>
+      
+    <%= form_with(model: recipe) do |form| %>
+      <label class="switch">
+      <%= form.check_box :public, 
+        :disabled => disabled,
+        :class => "status-checkbox",
+        :role => "switch",
+        :onclick => "this.form.submit()" %>
+      <span class="slider round"></span>
+    <% end %>
+  </p>
+  
 </div>

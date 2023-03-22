@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Shopping List</h2>
+  <div class="shopping-list-header">
+    <div>
+      <h4>Amount of food to buy: <%= @shopping_list.length %></h4>
+      <h4>Total value of food needed: $<%= @total_foods_value %></h4>
+    </div>
+    <div>
+      <h4>Recipe: <%= link_to @recipe.name, recipe_path(id: @recipe.id) %></h4>
+      <h4>Inventory: <%= link_to @inventory.name, inventory_path(id: @inventory.id) %></h4>
+    </div>
+  </div>
+
+  <%if @shopping_list.present? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @shopping_list.each do | item | %>
+          <tr>
+            <td><%= item[:food_name] %></td>
+            <td><%= item[:quantity]%> <%= item[:food_unit] %></td>
+            <td>$<%= item[:price] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div>
+      <p> No need of shopping.</p>
+    </div>
+  <% end %>
+</div>

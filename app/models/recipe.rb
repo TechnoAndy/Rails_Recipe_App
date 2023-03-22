@@ -16,4 +16,8 @@ class Recipe < ApplicationRecord
     end
     total
   end
+
+  def own?
+    user_id == current_user.id
+  end
 end
