@@ -14,15 +14,22 @@
  *= require_self
  */
 
-*,
+/* *,
 *::after,
 *::before {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 0; */
 
-  /* color: black; */
-  font-family: 'poppins', sans-serif;
+/* color: black; */
+
+/* font-family: 'poppins', sans-serif;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -34,10 +41,11 @@ body {
 
 .navbar-identifier {
   align-items: center;
-  width: 100%;
-  padding: 0 80px;
+  width: 60%;
+  padding: 0 10px;
   padding-bottom: 10px;
   padding-top: 10px;
+  margin: auto;
 }
 
 .navbar-link {
@@ -68,4 +76,21 @@ body {
   border: 3px solid black;
   padding: 4.5px 8px;
   font-size: 15px;
+}
+
+.input {
+  width: 320px;
+  height: 30px;
+  margin-top: 15px;
+  margin-bottom: 12px;
+  padding-left: 5px;
+  border-radius: 10px;
+}
+
+.btn-submit {
+  width: auto;
+  padding: 2px 10px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  font-size: 18px;
 }

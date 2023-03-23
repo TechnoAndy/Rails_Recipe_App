@@ -8,7 +8,8 @@
   <%= render @recipe %>
 
   <div class="recipe-actions">
-    <button type="button"
+
+    <button type="button", class="btn-submit"
       id="btn-choose-inventory"
       onclick="showModal()"
       data-toggle="modal"
@@ -17,10 +18,10 @@
     </button>
 
     <% if can? :manage, @recipe %>
-      <%= button_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), method: :get %>
+      <%= button_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), method: :get, class: 'btn-submit' %>
     <%end%>
   </div>
-  
+
   <div class=recipe-line></div>
 
   <table class="recipe-food-table">
@@ -53,8 +54,9 @@
   </table>
 
   <div class="recipe-footer">
-    <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-    <%= link_to "Back to recipes", recipes_path %>
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: 'add-inventory' %> |
+    <%= link_to "Back to recipes", recipes_path, class: 'add-inventory' %>
+
   </div>
 </div>
 </section>
@@ -67,11 +69,12 @@
     <%= form_with url: shopping_lists_path, class: "recipe-modal-selector", method: :get do |form| %>
       <%- @inventories = Inventory.includes(:user ).where(user_id: current_user.id) %>
       <%= form.select :inventory_id, @inventories.map { |i| [i.name, i.id] } %>
-
       <%= form.number_field :recipe_id, value: @recipe.id, hidden: true %>
 
       <div class="recipe-modal-footer">
-        <%= form.submit "Generate", data: { turbo: false } %>
+
+        <%= form.submit "Generate", data: { turbo: false }, class: 'btn-submit' %>
+
       </div>
     <% end %>
   </div>
