@@ -41,11 +41,14 @@ body {
 
 .navbar-identifier {
   align-items: center;
-  width: 60%;
+  width: 100%;
   padding: 0 10px;
   padding-bottom: 10px;
   padding-top: 10px;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 
 .navbar-link {

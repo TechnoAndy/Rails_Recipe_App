@@ -9,11 +9,12 @@
     <th>Price</th>
     <th>Action</th>
   </tr>
-  </table>
-<div id="foods">
+  </thead>
+  <tbody>
+<tbody id="foods">
   <% @foods.each do |food| %>
     <%= render food %>
   <% end %>
-</div>
-
+</tbody>
+</table>
 <%= link_to "New food", new_food_path, class: 'add-inventory' %>

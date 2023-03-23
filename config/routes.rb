@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'foods#index'
 
-  resources :users
+  resources :users 
   resources :foods
   resources :inventories do 
     resources :inventory_foods

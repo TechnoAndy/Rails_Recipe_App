@@ -1,6 +1,5 @@
 <p style="color: green"><%= notice %></p>
 <section class="inventory-container">
-<h1 class="inventory-title">Inventories</h1>
 
 <ul class="inventories-container" id="inventories">
   <% @inventories.each_with_index do |inventory, index| %>
@@ -11,7 +10,7 @@
     <p><%= button_to "Remove", inventory, method: :delete, class: "recipe-remove" %></p>
     </div>
     <p>
-    <%= link_to inventory.name, inventory_url(inventory), class: 'inven-name' %>
+    <%= link_to inventory.name, inventory_url(inventory), class: 'inven-names' %>
      </p>
      </li>
      <% end %>
