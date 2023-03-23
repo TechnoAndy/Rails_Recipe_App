@@ -13,14 +13,16 @@
   data-target="#modalChooseInventory">
     Generate shopping list
 </button>
-
+<section class="inventory-container"></section>
 <% if can? :manage, @recipe %>
+<div class="add-new-food">
   <%= button_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), method: :get %>
 <%end%>
-
-<table>
+</div>
+<hr style="width:500px;">
+<table class="inventory-food-tale">
   <thead>
-    <tr>
+    <tr class="head-table">
       <th>Food</th>
       <th>Quantity</th>
       <th>Value</th>
@@ -30,7 +32,7 @@
 
   <tbody>
     <% @recipe.recipe_foods.each do |recipe_food| %>
-      <tr>
+      <tr class="inventory-tr">
         <td><%= recipe_food.food.name %></td>
         <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
         <td>$<%= recipe_food.quantity * recipe_food.food.price%></td>
@@ -51,6 +53,7 @@
   <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
   <%= link_to "Back to recipes", recipes_path %>
 </div>
+</section>
 
 <div class="modal hide" id="modalChooseInventory">
   <h5 id="modalChooseInventoryLabel">Generating Shopping List</h5>
