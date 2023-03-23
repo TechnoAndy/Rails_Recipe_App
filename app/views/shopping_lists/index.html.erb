@@ -1,7 +1,7 @@
-<div class="container">
+<div class="recipe-container">
   <h2>Shopping List</h2>
-  <div class="shopping-list-header">
-    <div>
+  <div class="recipe-body">
+    <div class="recipe-left">
       <h4>Amount of food to buy: <%= @shopping_list.length %></h4>
       <h4>Total value of food needed: $<%= @total_foods_value %></h4>
     </div>
@@ -12,8 +12,8 @@
   </div>
 
   <%if @shopping_list.present? %>
-    <table>
-      <thead>
+    <table class="recipe-food-table">
+      <thead class="recipe-head-table">
         <tr>
           <th>Food</th>
           <th>Quantity</th>
@@ -23,7 +23,7 @@
 
       <tbody>
         <% @shopping_list.each do | item | %>
-          <tr>
+          <tr class="recipe-tr">
             <td><%= item[:food_name] %></td>
             <td><%= item[:quantity]%> <%= item[:food_unit] %></td>
             <td>$<%= item[:price] %></td>

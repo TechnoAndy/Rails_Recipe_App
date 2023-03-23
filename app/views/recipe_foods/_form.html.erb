@@ -1,30 +1,32 @@
-<%= form_with(url: recipe_recipe_foods_path, scope: :recipe_food) do |form| %>
-  <% if recipe_food.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
+<div>
+  <%= form_with(url: recipe_recipe_foods_path, scope: :recipe_food) do |form| %>
+    <% if recipe_food.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
 
-      <ul>
-        <% recipe_food.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% recipe_food.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form.hidden_field :recipe_id, value: @recipe_id %>
+    <p>Ingredients for recipe # <%= @recipe_id %> </p>
+
+    <div>
+      <%= form.label :food_id %>
+      <%= form.select :food_id, @foods.map { |food| [food.name, food.id] } %>
+    </div>
+
+    <div>
+      <%= form.label :quantity %>
+      <%= form.text_field :quantity %>
+    </div>
+
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <%= form.hidden_field :recipe_id, value: @recipe_id %>
-  <p>Ingredients for recipe # <%= @recipe_id %> </p>
-
-  <div>
-    <%= form.label :food_id %>
-    <%= form.select :food_id, @foods.map { |food| [food.name, food.id] } %>
-  </div>
-
-  <div>
-    <%= form.label :quantity %>
-    <%= form.text_field :quantity %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
