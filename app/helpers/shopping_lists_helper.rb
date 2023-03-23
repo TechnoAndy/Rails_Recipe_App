@@ -1,8 +1,8 @@
 module ShoppingListsHelper
   def shoping_list
     @shoppinglist = []
-    @recipe_foods = RecipeFood.where(recipe_id: params[:recipe_id])
-    @inventory_foods = InventoryFood.where(inventory_id: params[:inventory_id])
+    @recipe_foods = RecipeFood.includes(:food).where(recipe_id: params[:recipe_id])
+    @inventory_foods = InventoryFood.includes(:food).where(inventory_id: params[:inventory_id])
 
     @recipe_foods.each do |recipe_food|
       quantity_to_shop = 0
