@@ -69,3 +69,26 @@ body {
   padding: 4.5px 8px;
   font-size: 15px;
 }
+
+.input {
+  width: 320px;
+  height: 30px;
+  margin-top: 15px;
+  margin-bottom: 12px;
+  padding-left: 5px;
+  border-radius: 10px;
+}
+
+.btn-submit {
+  width: auto;
+  padding: 2px 10px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.remember_me {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: auto;
+}

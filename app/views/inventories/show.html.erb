@@ -22,7 +22,7 @@
         <td><%= inventory_food.food.name %></td>
         <td><%= inventory_food.quantity %></td>
         <td><%= button_to "Remove", inventory_inventory_food_path(inventory_food.inventory.id, inventory_food.id), method: :delete %></td>
-      
+
       </tr>
     <%end %>
   </tbody>
