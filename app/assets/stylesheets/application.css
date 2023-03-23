@@ -14,7 +14,7 @@
  *= require_self
  */
 
- *,
+*,
 *::after,
 *::before {
   box-sizing: border-box;
@@ -32,17 +32,12 @@ body {
   align-items: center;
 }
 
-body {
-  font-family: 'poppins', sans-serif;
-}
-
 .navbar-identifier {
   align-items: center;
   width: 100%;
-  padding: 0px 80px;
+  padding: 0 80px;
   padding-bottom: 10px;
   padding-top: 10px;
-
 }
 
 .navbar-link {
