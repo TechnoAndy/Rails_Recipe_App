@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :shopping_lists
 
   get '/public_recipes', to: 'recipes#public_recipes'
+  get '/about', to: 'recipes#about'
 end

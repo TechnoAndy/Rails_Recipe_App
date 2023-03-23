@@ -65,6 +65,8 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(public: true).order(created_at: :desc)
   end
 
+  def about; end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

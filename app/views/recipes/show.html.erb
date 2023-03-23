@@ -67,7 +67,7 @@
   <div class="modal-body">
     <h6>Choose an inventory to use</h6>
     <%= form_with url: shopping_lists_path, class: "recipe-modal-selector", method: :get do |form| %>
-      <%- @inventories = Inventory.where(user_id: current_user.id) %>
+      <%- @inventories = Inventory.includes(:user ).where(user_id: current_user.id) %>
       <%= form.select :inventory_id, @inventories.map { |i| [i.name, i.id] } %>
       <%= form.number_field :recipe_id, value: @recipe.id, hidden: true %>
 
