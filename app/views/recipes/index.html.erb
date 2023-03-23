@@ -1,22 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Recipes</h1>
-
-<div id="recipes">
+<div id="recipes" class="recipe-container">
   <% @recipes.each do |recipe| %>
     <% if (current_user.id == recipe.user_id) || (current_user.admin?) %> 
-      <div>
-        <p><strong><%= recipe.name %></strong></p>
+      <div class="recipe-element">
+        <div class="recipe-head">
+          <p><strong><%= link_to "#{recipe.name}", recipe_path(recipe.id) %></strong></p>
+          <p>
+            <%= button_to "REMOVE", recipe, method: :delete, class: "recipe-remove" %>
+          </p>
+        </div>
+        <div class="recipe-descr">
+          <p><%= recipe.description %></p>
+        </div>
 
-        <p><%= recipe.description %></p>
-        
-        <p>
-          <%= link_to "Show this recipe", recipe %>
-          <%= button_to "Destroy this recipe", recipe, method: :delete %>
-        </p>
       </div>
     <% end %>
   <% end %>
 </div>
 
-<%= link_to "New recipe", new_recipe_path %>
+<div class="recipe-footer">
+  <%= link_to "New recipe", new_recipe_path %>
+</div>
