@@ -27,8 +27,12 @@
 
 .inventories-container li {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  gap: 0.3rem;
+  width: 20rem;
+  border: 1px solid black;
+  padding: 10px;
 }
 
 .inventory-element {
