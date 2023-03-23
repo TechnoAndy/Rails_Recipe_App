@@ -1,10 +1,10 @@
 
-  <table>
-  <tr id="<%= dom_id food %>">
+  <table class="foods-food-table">
+  <tr class="foods-tr">
     <td><%= food.name %></td>
     <td><%= food.measurement_unit %></td>
     <td><%= food.price %></td>
-    <td> <%= button_to "Destroy this food", food, method: :delete %></td>
+    <td> <%= button_to "Delete", food, method: :delete, class: "recipe-remove" %></td>
   </tr>
 </table>
 

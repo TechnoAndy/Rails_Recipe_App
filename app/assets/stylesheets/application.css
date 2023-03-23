@@ -14,15 +14,21 @@
  *= require_self
  */
 
-*,
+/* *,
 *::after,
 *::before {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 0; */
 
   /* color: black; */
-  font-family: 'poppins', sans-serif;
+  /* font-family: 'poppins', sans-serif;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -34,10 +40,11 @@ body {
 
 .navbar-identifier {
   align-items: center;
-  width: 100%;
-  padding: 0 80px;
+  width: 60%;
+  padding: 0 10px;
   padding-bottom: 10px;
   padding-top: 10px;
+  margin: auto;
 }
 
 .navbar-link {
@@ -87,8 +94,3 @@ body {
   font-size: 18px;
 }
 
-.remember_me {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: auto;
-}

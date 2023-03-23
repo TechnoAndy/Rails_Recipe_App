@@ -1,16 +1,150 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+}
+
 .hide {
   display: none;
 }
 
-.modal {
+.recipe-modal {
   border: 1px solid black;
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 30%;
+  left: 30%;
   background-color: white;
+  padding: 16px;
+  box-shadow: 5px 10px gray;
+  line-height: 42px;
 }
 
-/* Toggle switch */
+.recipe-modal-selector {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-title {
+  text-align: center;
+}
+
+.recipe-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.recipe-element {
+  display: flex;
+  gap: 0.3rem;
+  border: 1px solid black;
+  width: 30rem;
+  padding: 8px;
+}
+
+.recipe-head {
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recipe-remove {
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: blue;
+  text-decoration: underline;
+}
+
+.recipe-descr {
+  width: 100%;
+}
+
+.recipe-actions {
+  display: flex;
+  width: 30rem;
+  justify-content: space-between;
+}
+
+.recipe-line {
+  width: 30rem;
+  border-bottom: 1px solid black;
+}
+
+.recipe-body {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.3rem;
+  width: 30rem;
+  padding: 8px;
+}
+
+.recipe-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recipe-public {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recipe-text {
+  gap: 0.3rem;
+  width: 30rem;
+  padding: 8px;
+}
+
+.recipe-footer {
+  text-align: center;
+  padding: 42px;
+}
+
+.recipe-food-table {
+  width: 600px;
+  text-align: left;
+  border: 2px solid black;
+}
+
+.recipe-head-table {
+  background-color: silver;
+  border-collapse: collapse;
+}
+
+.recipe-tr td,
+th {
+  height: 30px;
+}
+
+.recipe-tr:nth-child(even) {
+  background-color: #ddd;
+  padding: 10px;
+}
+
+.recipe-table-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ********************************************** */
+
+/* *******        Toggle switch           ******* */
+
+/* ********************************************** */
+
 .switch {
   position: relative;
   display: inline-block;

@@ -32,6 +32,11 @@ class RecipeFoodsController < ApplicationController
 
     @recipe_food = RecipeFood.new(recipe_food_params)
 
+    unless @recipe.recipe_foods.find_by(food_id: recipe_food_params[:food_id]).nil?
+      redirect_to recipe_url(@recipe), alert: 'Such ingredient for this recipe already exists!'
+      return
+    end
+
     respond_to do |format|
       if @recipe_food.save
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe food was successfully created.' }
