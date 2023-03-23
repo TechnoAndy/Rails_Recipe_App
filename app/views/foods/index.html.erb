@@ -1,7 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Foods</h1>
-<table>
+<table class="foods-food-table">
+  <thead class="foods-head-table">
   <tr>
     <th>Name</th>
     <th>Measurement</th>
@@ -15,4 +16,4 @@
   <% end %>
 </div>
 
-<%= link_to "New food", new_food_path, class: "nav-btn" %>
+<%= link_to "New food", new_food_path, class: 'add-inventory' %>

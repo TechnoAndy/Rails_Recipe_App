@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "inventory", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    
+
     <%= javascript_include_tag "application" %>
     <%= yield :javascript_includes %>
   </head>
@@ -18,14 +18,14 @@
 
     <nav class="navbar">
       <div class="navbar-identifier">
-      <% if user_signed_in? %> Logged in as <strong class="navbar-identifier"> <%= current_user.name %></strong>
-    </div>
+        <% if user_signed_in? %> Logged in as <strong> <%= current_user.name %></strong>
+        <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"  %> 
+      </div>
       <%= link_to "Foods", foods_path, class: "navbar-link" %> |
       <%= link_to "Recipes", recipes_path, class: "navbar-link" %> |
       <%= link_to "Public recipes", public_recipes_path, class: "navbar-link" %> |
       <%= link_to "Inventories", inventories_path, class: "navbar-link" %> |
-      <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> |   
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"  %>      
+      <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> |
       <% end %>
     </nav>
 
