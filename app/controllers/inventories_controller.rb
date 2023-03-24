@@ -1,23 +1,19 @@
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: %i[show edit update destroy]
 
-  # GET /inventories or /inventories.json
   def index
     @inventories = Inventory.all
   end
 
-  # GET /inventories/1 or /inventories/1.json
   def show
     @inventory = Inventory.find(params[:id])
     @inventory_foods = InventoryFood.includes(:food).where(inventory_id: @inventory.id)
   end
 
-  # GET /inventories/new
   def new
     @inventory = Inventory.new
   end
 
-  # POST /inventories or /inventories.json
   def create
     @inventory = current_user.inventories.build(inventory_params)
     respond_to do |format|
@@ -31,7 +27,6 @@ class InventoriesController < ApplicationController
     end
   end
 
-  # DELETE /inventories/1 or /inventories/1.json
   def destroy
     @inventory.destroy
 
@@ -43,12 +38,10 @@ class InventoriesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_inventory
     @inventory = Inventory.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def inventory_params
     params.require(:inventory).permit(:name)
   end

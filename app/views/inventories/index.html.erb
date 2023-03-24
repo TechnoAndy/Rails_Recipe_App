@@ -5,13 +5,13 @@
   <% @inventories.each_with_index do |inventory, index| %>
   <% if can? :manage, inventory %>
      <li id="<%= dom_id inventory %>">
-     <div class="inventory-element">
-    <h2>inventory <%= index + 1 %></h2>
-    <p><%= button_to "Remove", inventory, method: :delete, class: "recipe-remove" %></p>
-    </div>
-    <p>
-    <%= link_to inventory.name, inventory_url(inventory), class: 'inven-names' %>
-     </p>
+      <div class="inventory-element">
+        <h2><%= link_to inventory.name, inventory_url(inventory), class: 'inven-names' %></h2>
+        <p><%= button_to "Remove", inventory, method: :delete, class: "recipe-remove" %></p>
+      </div>
+      <p>
+        Description for the inventory. So much text in this small place. Lorem ipsum dolor sir
+      </p>
      </li>
      <% end %>
   <% end %>
