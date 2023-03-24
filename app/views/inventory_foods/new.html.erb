@@ -1,0 +1,11 @@
+<section class="inventory-container">
+<h1 class="inventory-title">New inventory food</h1>
+
+<%= render "form", inventory_food: @inventory_food %>
+
+<br>
+
+<div>
+  <%= link_to "Back to inventory foods", inventories_path,  class: 'add-inventory' %>
+</div>
+</section>

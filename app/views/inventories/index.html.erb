@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+<section class="inventory-container">
+
+<ul class="inventories-container" id="inventories">
+  <% @inventories.each_with_index do |inventory, index| %>
+  <% if can? :manage, inventory %>
+     <li id="<%= dom_id inventory %>">
+      <div class="inventory-element">
+        <h2><%= link_to inventory.name, inventory_url(inventory), class: 'inven-names' %></h2>
+        <p><%= button_to "Remove", inventory, method: :delete, class: "recipe-remove" %></p>
+      </div>
+      <p>
+        <%= inventory.description%>
+      </p>
+     </li>
+     <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "Add Inventory", new_inventory_path, class: 'add-inventory' %>
+</section>

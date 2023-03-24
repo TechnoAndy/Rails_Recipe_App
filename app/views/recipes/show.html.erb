@@ -1,0 +1,84 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "modal.js" %>
+<% end %>
+
+<p style="color: green"><%= notice %></p>
+
+<div class="recipe-container">
+  <%= render @recipe %>
+
+  <div class="recipe-actions">
+    <% if @inventories.empty? %>
+      <h3>No inventory exists</h3>
+    <%else%>
+      <button type="button", class="btn-submit"
+        id="btn-choose-inventory"
+        onclick="showModal()"
+        data-toggle="modal"
+        data-target="#modalChooseInventory">
+          Generate shopping list
+      </button>
+    <% end %>
+
+    <% if can? :manage, @recipe %>
+      <%= button_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), method: :get, class: 'btn-submit' %>
+    <%end%>
+  </div>
+
+  <div class=recipe-line></div>
+
+  <table class="recipe-food-table">
+    <thead class="recipe-head-table">
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+        <tr class="recipe-tr">
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+          <td>$<%= recipe_food.quantity * recipe_food.food.price%></td>
+          <td>
+          <div class="recipe-table-actions">
+            <% if can? :manage, @recipe %>
+              <%= button_to "Modify", edit_recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :get, class: "recipe-remove" %>
+              <%= button_to "Remove", recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :delete, class: "recipe-remove"%>
+            <%end%>
+            <div>
+          </td>
+        </tr>
+      <%end %>
+    </tbody>
+  </table>
+
+  <div class="recipe-footer">
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: 'add-inventory' %> |
+    <%= link_to "Back to recipes", recipes_path, class: 'add-inventory' %>
+
+  </div>
+</div>
+</section>
+
+<div class="recipe-modal hide" id="modalChooseInventory">
+  <h5 id="modalChooseInventoryLabel">Generating Shopping List</h5>
+
+  <div class="modal-body">
+    <h6>Choose an inventory to use</h6>
+    <%= form_with url: shopping_lists_path, class: "recipe-modal-selector", method: :get do |form| %>
+      <%- @inventories = Inventory.includes(:user ).where(user_id: current_user.id) %>
+      <%= form.select :inventory_id, @inventories.map { |i| [i.name, i.id] } %>
+      <%= form.number_field :recipe_id, value: @recipe.id, hidden: true %>
+
+      <div class="recipe-modal-footer">
+
+        <%= form.submit "Generate", data: { turbo: false }, class: 'btn-submit' %>
+
+      </div>
+    <% end %>
+  </div>
+</div>

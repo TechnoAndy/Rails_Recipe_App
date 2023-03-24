@@ -1,0 +1,53 @@
+<div id="<%= dom_id recipe %>" class="recipe-container">
+  <p>
+    Recipe <%= recipe.id %> : <strong><%= recipe.name %></strong>
+  </p>
+
+  <div class="recipe-body">
+    <div class="recipe-left">
+      <p>
+        <strong>Preparation time:</strong>
+        <%= recipe.preparation_time %>
+      </p>
+
+      <p>
+        <strong>Cooking time:</strong>
+        <%= recipe.cooking_time %>
+      </p>
+    </div>
+
+    <div class="recipe-public">
+      <p>          
+        <% if recipe.public %>
+          <p>Public</p>
+        <% else %>
+          <p>Private</p>
+        <% end %>
+      </p>
+
+      <p>
+        <% if current_user.id === recipe.user_id %>
+          <%disabled = false%>
+        <%else%>
+          <%disabled = true%>
+        <%end%>
+          
+        <%= form_with(model: recipe) do |form| %>
+          <label class="switch">
+          <%= form.check_box :public, 
+            :disabled => disabled,
+            :class => "status-checkbox",
+            :role => "switch",
+            :onclick => "this.form.submit()" %>
+          <span class="slider round"></span>
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+  <div class="recipe-text">
+    <strong>Steps go here:</strong><br>
+    <%= recipe.description %>
+  </div>
+</div>
+

@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="food-add-new-btn">
+  <%= button_to "Add food", new_food_path, method: :get, class: 'btn-submit' %>
+</div>
+
+<table class="foods-food-table">
+  <thead class="foods-head-table">
+  <tr>
+    <th>Food</th>
+    <th>Measurement unit</th>
+    <th>Unit price</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody id="foods">
+    <% @foods.each do |food| %>
+      <% if (current_user.id == food.user_id) || (current_user.admin?) %> 
+        <%= render food %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

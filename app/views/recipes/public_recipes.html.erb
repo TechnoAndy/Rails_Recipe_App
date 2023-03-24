@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="recipe-title">Public Recipes</h1>
+  <div class="recipe-container">
+    <% @recipes.each do |recipe| %>
+    <div class="recipe-element">
+      <div class="recipe-head">
+        <p><strong><%= link_to "#{recipe.name}", recipe_path(recipe.id) %></strong></p>
+        <p>By: <%= User.find(recipe.user_id).name %></p>
+      </div>
+      <div class="recipe-descr">
+        <p><span> Total food items: </span><%= recipe.total_food_items %></p>
+        <p><span> Total price: $</span><%= recipe.total_price %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

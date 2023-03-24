@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+ <section class="inventory-container">
+  <% if can? :manage, @inventory %>
+    <h1 class="inventory-title"> Inventory <%= @inventory.id %> </h1>
+    <div class="add-new-food">
+    <%= link_to "Add food", new_inventory_inventory_food_path(@inventory.id), class: 'add-inventory' %>
+     <% end %>
+     </div>
+     <hr style="width:500px;">
+   <table class="inventory-food-tale">
+  <thead>
+    <tr class="head-table">
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Actions</th>
+      </tr>
+  </thead>
+
+  <tbody>
+    <% @inventory_foods.each do |inventory_food| %>
+      <tr class="inventory-tr">
+        <td><%= inventory_food.food.name %></td>
+        <td><%= inventory_food.quantity %></td>
+        <td><%= button_to "Remove", inventory_inventory_food_path(inventory_food.inventory.id, inventory_food.id), method: :delete, class: 'add-inventory', class: 'btn-submit' %></td>
+
+      </tr>
+    <%end %>
+  </tbody>
+</table>
+
+  <div>
+  <%= link_to "Back to inventories", inventories_path, class: 'add-inventory' %>
+</div>
+ </section>

@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* *,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; */
+
+/* color: black; */
+
+/* font-family: 'poppins', sans-serif;
+} */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-identifier {
+  align-items: center;
+  width: 100%;
+  padding: 0 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.navbar-link {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.nav-btn {
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 6px 8px;
+  width: 80px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+  color: black;
+  cursor: pointer;
+  margin: auto;
+  text-decoration: none;
+}
+
+.nav-btn:hover {
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+  padding: 4.5px 8px;
+  font-size: 15px;
+}
+
+.input {
+  width: 320px;
+  height: 30px;
+  margin-top: 15px;
+  margin-bottom: 12px;
+  padding-left: 5px;
+  border-radius: 10px;
+}
+
+.btn-submit {
+  width: auto;
+  padding: 2px 10px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  font-size: 18px;
+}

@@ -1,0 +1,113 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.inventory-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.inventory-title {
+  font-size: 32px;
+}
+
+.inventories-container {
+  display: flex;
+  width: 300px;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.inventories-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.3rem;
+  width: 20rem;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+.inventory-element {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.inven-remove {
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: blue;
+  text-decoration: underline;
+}
+
+.inven-name {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.add-inventory {
+  text-decoration: none;
+  font-size: 18px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  color: blue;
+  background-color: #fff;
+}
+
+.add-inventory:hover {
+  transform: scale(0.9);
+}
+
+.inventory-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.name-field {
+  font-size: 18px;
+  height: 30px;
+  margin-top: 0.5rem;
+  padding: 5px;
+}
+
+.add-new-food {
+  width: 600px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.inventory-food-tale {
+  width: 600px;
+  text-align: left;
+  border: 2px solid black;
+}
+
+.head-table {
+  background-color: silver;
+  border-collapse: collapse;
+}
+
+.inventory-tr td,
+th {
+  height: 30px;
+}
+
+.inventory-tr:nth-child(even) {
+  background-color: #ddd;
+  padding: 10px;
+}

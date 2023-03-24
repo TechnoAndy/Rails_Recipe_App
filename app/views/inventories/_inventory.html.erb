@@ -1,0 +1,7 @@
+ <li id="<%= dom_id inventory %>">
+    <strong>Name:</strong>
+    <%= link_to inventory.name, inventory_url(inventory) %>
+     <%= button_to "Remove", inventory, method: :delete %>
+     </li>
+
+

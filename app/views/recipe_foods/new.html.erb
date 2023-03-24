@@ -1,0 +1,11 @@
+<div class="recipe-container">
+  <h1>New recipe food</h1>
+
+  <%= render "form", recipe_food: @recipe_food %>
+
+  <br>
+
+  <div>
+    <%= link_to "Back to recipe", recipe_path(@recipe) %>
+  </div>
+<div class="recipe-container">

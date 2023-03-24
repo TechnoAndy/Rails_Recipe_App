@@ -1,0 +1,27 @@
+<%= form_with(model: inventory, html: {class: "inventory-form"}) do |form| %>
+  <% if inventory.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
+
+      <ul>
+        <% inventory.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class: 'name-field' %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'add-inventory' %>
+  </div>
+<% end %>
