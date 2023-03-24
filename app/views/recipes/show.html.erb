@@ -8,14 +8,17 @@
   <%= render @recipe %>
 
   <div class="recipe-actions">
-
-    <button type="button", class="btn-submit"
-      id="btn-choose-inventory"
-      onclick="showModal()"
-      data-toggle="modal"
-      data-target="#modalChooseInventory">
-        Generate shopping list
-    </button>
+    <% if @inventories.empty? %>
+      <h3>No inventory exists</h3>
+    <%else%>
+      <button type="button", class="btn-submit"
+        id="btn-choose-inventory"
+        onclick="showModal()"
+        data-toggle="modal"
+        data-target="#modalChooseInventory">
+          Generate shopping list
+      </button>
+    <% end %>
 
     <% if can? :manage, @recipe %>
       <%= button_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), method: :get, class: 'btn-submit' %>

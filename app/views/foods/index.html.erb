@@ -13,10 +13,12 @@
     <th>Actions</th>
   </tr>
   </thead>
-  <tbody>
-<tbody id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-  <% end %>
-</tbody>
+
+  <tbody id="foods">
+    <% @foods.each do |food| %>
+      <% if (current_user.id == food.user_id) || (current_user.admin?) %> 
+        <%= render food %>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>
