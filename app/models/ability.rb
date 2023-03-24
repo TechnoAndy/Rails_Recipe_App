@@ -33,6 +33,7 @@ class Ability
 
     return unless user.present?
 
+    can :manage, Food, user_id: user.id # if the user is logged in can manage it's own food
     can :manage, Recipe, user_id: user.id # if the user is logged in can manage it's own recipes
     can :manage, Inventory, user_id: user.id # if the user is logged in can manage it's own inventories
 

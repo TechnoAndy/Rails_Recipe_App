@@ -17,6 +17,11 @@
   </div>
 
   <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
     <%= form.submit class: 'add-inventory' %>
   </div>
 <% end %>

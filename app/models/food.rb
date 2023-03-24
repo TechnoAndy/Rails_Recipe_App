@@ -1,4 +1,5 @@
 class Food < ApplicationRecord
+  belongs_to :user, foreign_key: 'user_id', class_name: 'User'
   has_many :inventory_foods
   has_many :recipe_foods
 

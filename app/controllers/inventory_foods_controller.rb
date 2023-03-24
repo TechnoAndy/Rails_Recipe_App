@@ -6,7 +6,7 @@ class InventoryFoodsController < ApplicationController
   end
 
   def new
-    @foods = Food.all
+    @foods = Food.includes(:user).where(user_id: current_user.id)
     @inventory_id = params[:inventory_id]
     @inventory_foods = InventoryFood.new
   end
