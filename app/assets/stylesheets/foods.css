@@ -25,3 +25,10 @@ th {
   background-color: #ddd;
   padding: 10px;
 }
+
+.food-add-new-btn {
+  width: 600px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+}
