@@ -5,13 +5,15 @@
     <% if (current_user.id == recipe.user_id) || (current_user.admin?) %> 
       <div class="recipe-element">
         <div class="recipe-head">
-          <p><strong><%= link_to "#{recipe.name}", recipe_path(recipe.id) %></strong></p>
+          <h2><%= link_to "Recipe #{recipe.id}", recipe_path(recipe.id) %></h2>
           <p>
-            <%= button_to "REMOVE", recipe, method: :delete, class: "recipe-remove" %>
+            <% if can? :destroy, recipe %>
+              <%= button_to "REMOVE", recipe, method: :delete, class: "recipe-remove" %>
+            <% end %>
           </p>
         </div>
         <div class="recipe-descr">
-          <p><%= recipe.description %></p>
+          <p><%= recipe.name%>: <%= recipe.description %></p>
         </div>
 
       </div>

@@ -46,16 +46,17 @@ body {
 .recipe-element {
   display: flex;
   gap: 0.3rem;
-  border: 1px solid black;
+  border: 2px solid black;
   width: 30rem;
   padding: 8px;
 }
 
 .recipe-head {
-  width: 12rem;
+  width: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
 }
 
 .recipe-remove {

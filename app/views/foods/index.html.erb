@@ -1,13 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Foods</h1>
+<div class="food-add-new-btn">
+  <%= button_to "Add food", new_food_path, method: :get, class: 'btn-submit' %>
+</div>
+
 <table class="foods-food-table">
   <thead class="foods-head-table">
   <tr>
-    <th>Name</th>
-    <th>Measurement</th>
-    <th>Price</th>
-    <th>Action</th>
+    <th>Food</th>
+    <th>Measurement unit</th>
+    <th>Unit price</th>
+    <th>Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -17,4 +20,3 @@
   <% end %>
 </tbody>
 </table>
-<%= link_to "New food", new_food_path, class: 'add-inventory' %>
