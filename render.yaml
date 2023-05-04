@@ -2,6 +2,7 @@ databases:
   - name: Rails_Recipe_App
     databaseName: Rails_Recipe_App
     user: Rails_Recipe_App_user
+    plan: free
 
 services:
   - type: web
@@ -16,3 +17,4 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+    plan: free
