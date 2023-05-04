@@ -2,6 +2,7 @@ databases:
   - name: Number 1
     databaseName: number_1_c0v1
     user: number_1_c0v1_user
+    plan: free
 
 services:
   - type: web
@@ -16,3 +17,4 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
+    plan: free
